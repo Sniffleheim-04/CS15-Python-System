@@ -7,32 +7,6 @@ wallets: Wallet = []
 current_wallet: int = 0
 
 # FUNCTIONS
-def wallet_option(): # Prints the wallet options
-
-    print(Text.wallet_option)
-    option = input("Select (1-3): ")
-
-    match option:
-
-        case "1": # CREATE NEW WALLET
-            wallets.append(create_wallet())
-
-        case "2": # OPEN EXISTING WALLET
-            if len(wallets) < 1:
-                print("\n"+"-"*32 + "\n       NO EXISTING WALLETS\n" + "-"*32)
-                time.sleep(1)
-                return
-            else:
-                pass
-            
-        case "3": # EXIT APP
-            print("\n"+"-"*32 + "\n         PROGRAM EXITED\n" + "-"*32)
-            global isRunning
-            isRunning = False
-
-        case _:
-            print("\n"+"-"*32 + "\n          INVALID INPUT\n" + "-"*32)
-
 def main_menu(): # Prints the user options
     print(Text.main_menu)
     option = input("Select (1-5): ")
@@ -68,13 +42,10 @@ def create_wallet():
     return Wallet(name, contact_number, sb)
 
 
-    
-
-
 # MAIN CODE BLOCK
 wallets.append(create_wallet())
 while isRunning:
     main_menu()
     time.sleep(1)
-
+    
 
