@@ -1,3 +1,4 @@
+# PRINT TEXT DUMP
 class Text:
     main_menu = "\n--- MENU ---\n" \
                 "1. Top up Load \n" \

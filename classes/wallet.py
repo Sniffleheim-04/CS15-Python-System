@@ -6,12 +6,15 @@ class Wallet:
         self.__contact_number = contact_number
         self.__current_balance  = starting_balance
 
+    # Returns the contact number of the wallet's owner
     def get_contact_number(self):
         return self.__contact_number
 
+    # Returns the current balance of the wallet
     def get_balance(self):
         return self.__current_balance
 
+    # Adds the current balance
     def top_up(self, amount: float):
         try:
             n = float(amount)
@@ -27,10 +30,11 @@ class Wallet:
               "\n       Top-up Successful!" + 
              f"\n     New Balance: P{self.__current_balance:.2f}\n" + "-"*32)
 
+    # Prints the current balance
     def show_balance(self):
         print("\n"+"-"*32 + f"\nCurrent Balance: P{self.__current_balance}\n" + "-"*32)
 
-
+    # Sends load to the same network without fee
     def send_load(self, amount: float):
         try:
             n = float(amount)
@@ -52,7 +56,8 @@ class Wallet:
             print("\n"+"-"*32 + 
                     "\n       Sent Successfully!" + 
                     f"\n     New Balance: P{self.__current_balance:.2f}\n" + "-"*32)
-
+    
+    # Sends load to other network with fee
     def send_load_fee(self, amount: float):
             fee = 15
             try:

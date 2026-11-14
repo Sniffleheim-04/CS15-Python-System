@@ -11,21 +11,28 @@ def main_menu(): # Prints the user options
     print(Text.main_menu)
     option = input("Select (1-5): ")
     match option:
-        case "1":
+
+        case "1": # Top-Up Load
             wallets[current_wallet].top_up(input("Enter Top-up Amount (P): "))
-        case "2":
+
+        case "2": # Send Load (Same Network)
             wallets[current_wallet].send_load(input("Enter Amount Sent (P): "))
-        case "3":
+
+        case "3": # Send Load (Other network, P15 fee)
             wallets[current_wallet].send_load_fee(input("Enter Amount Sent (+ P15 Fee) (P): "))
-        case "4":
+
+        case "4": # Show Balance
             wallets[current_wallet].show_balance()
-        case "5":
+
+        case "5": # Exit
             print("\n"+"-"*32 + "\n         PROGRAM EXITED\n" + "-"*32)
             global isRunning
             isRunning = False
+
         case _:
             print("INVALID INPUT!")
 
+# Creates wallet when first launching the app
 def create_wallet():
     print(Text.line)
     name = input("Enter Name: ")
